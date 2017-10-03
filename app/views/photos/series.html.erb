@@ -1,0 +1,28 @@
+<!-- picture display | series/:series -->
+<div class="container">
+	<ng-controller ng-controller="SeriesCtrl">
+		<!-- Images -->
+		<div class="row">
+			<% @photos.each do |photo| %>
+			<div class="view hm-zoom image-wrapper-series">
+				<img id="<%=photo.id%>" class="mySlides" src="<%=photo.image.url%>" data-toggle="modal" data-target="#myModal" width="365" height="365"/>
+			</div>
+			<% end %>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="row">
+								<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+								<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+								<img id="modalPhoto" class="img-responsive" src="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ng-controller>
+</div>

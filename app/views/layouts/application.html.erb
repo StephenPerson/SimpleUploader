@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SimpleUploader</title>
+	<%= csrf_meta_tags %>
+	<%= javascript_include_tag 'application', media: 'all' %>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body ng-app="app" style="min-width: 960px; margin: 0 auto;">
+	<!-- navbar -->
+	<ng-controller ng-controller="NavCtrl">
+		<div class="container">
+			<nav class="nav navbar navbar-fixed-top navbar-default">
+				<!-- right -->
+				<div class="navbar-collapse collapse">
+					<% if current_user.try(:admin?) %>
+					<ul ng-repeat="n in navlistadmin" class="nav navbar-nav nav-btn">
+						<li><a href="{{n.value}}">{{n.key}}</a></li>
+					</ul>
+					<% else %>
+					<ul ng-repeat="n in navlistuser" class="nav navbar-nav nav-btn">
+						<li><a href="{{n.value}}">{{n.key}}</a></li>
+					</ul>
+					<% end %>
+				</div>
+			</nav>
+		</div>
+	</ng-controller>
+	<br><br><br>
+	<!-- content -->
+	<div class="container">
+		<% flash.each do |key, value| %>
+		<div class="alert alert-<%=key%>"><%=value%></div>
+		<% end %>
+		<%= yield %>
+	</div>
+	<br><br>
+	<!-- footer -->
+	<footer class="footer navbar-default navbar-fixed-bottom">
+		<div class="container" style="margin-left: 10%; font-size:18px;">
+			<span></span>
+		</div>
+		<div class="container navbar-right center-right">
+			<a href="https://www.linkedin.com/in/hannah-person-58335614b/"><i class="fa fa-linkedin-square"></i></a>
+			<a href="https://www.facebook.com/hannah.person.5"><i class="fa fa-facebook-square icon"></i></a>
+		</div>
+	</footer>
+</body>
+</html>

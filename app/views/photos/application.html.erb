@@ -1,0 +1,38 @@
+<div class="container" ng-controller="HomeCtrl">
+	<!-- Series -->
+	<div class="row" ng-if="homeModal==='/'">
+		<% @photo_covers.each do |photo| %>
+		<div class="image-wrapper">
+			<a href="series/<%=photo.series%>">
+				<p>series <%=photo.series%></p>
+				<img src="<%=photo.image.url%>" width="365" height="365">
+			</a>
+		</div>
+		<% end %>
+	</div>
+	<!-- About -->
+	<div class="row" ng-show="homeModal==='/about'">
+		<div class="aboutme">
+			<div id="pic" class="page-section">
+				<img src='<%= image_path('about_me.jpg') %>'><br><br><br>
+				<button type="button" class="btn btn-primary scroll-link" data-id="aboutmetxt">
+  					<span class="glyphicon glyphicon-arrow-down" style="font-size: 14px;"></span>
+				</button>
+			</div>
+			<div id="aboutmetxt" class="page-section page-section-text">
+				<h1><b>About Me</b></h1>
+				<p>
+					Hannah Marie Person, freelance photographer and digital composition artist was born on December 24th, 1990 in Leesburg, Virginia. Amongst her love for illustration, painting, and writing, she found that a digital camera fit her hand the best when she picked up her first Canon at age nine. She soon found her favorite hobby would develop into a lifestyle. After high school, she began taking her first steps into developing her career as a photographer at Virginia Commonwealth University. Though her love for hustle-bustle of city life in the heart of Richmond was strong, she soon recognized the strong desire for a change of location and had a longing to return to the rural, rustic countryside she had grown up in. In 2013, she made a tough but fulfilling decision to move closer to home and transfer to Shepherd University to complete the challenging quest towards her degree in Photography and Computer Imagery. Over the years, Person has been proactive in working with clients practicing her skills of portraiture and event photography. Presently, she has been dedicating most of her time to developing her portfolio as a recent graduate of Shepherd University. Her current theme for her work contests the division between the realm of memory and experience, in which she illustrates in her layered photograph compositions using Adobe Photoshop. She strives to convey reflections on the closely related subjects of archive and memory. Currently, Person resides in Daytona Beach, Florida. She is working on personal work and has high hopes of landing a career in digital image editing and design.
+				</p> <br>
+				<button type="button" class="btn btn-primary scroll-link" data-id="pic">
+  					<span class="glyphicon glyphicon-arrow-up" style="font-size: 14px"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<!-- Contact -->
+	<div class="row" ng-show="homeModal==='/contactme'">
+		<h1>contact me</h1>
+	</div>
+
+</div>

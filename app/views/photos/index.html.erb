@@ -1,0 +1,31 @@
+<div class="page-header">
+	<h1>Photo Collection: <%= @photos.count %></h1>
+	<button class="btn btn-primary" onclick="location.href='/photos/new'">new</button>
+</div>
+
+<h3>covers</h3>
+<% @photos.each do |photo| %>
+	<% if photo.series_cover %>
+		<div class="image-wrapper">
+			<a>
+				<p>series <%=photo.series%></p>
+				<img id="<%photo.id%>" src="<%=photo.image.url%>" onclick="delete_photo(<%=photo.id%>)" width="365" height="365">
+			</a>
+		</div>
+	<% end %>
+<% end %>
+<hr>
+
+<h3>all</h3>
+<% @photos.each do |photo| %>
+	<% if !photo.series_cover %>
+		<div class="image-wrapper">
+			<a>
+				<p>series <%=photo.series%></p>
+				<img id="<%photo.id%>" src="<%=photo.image.url%>" onclick="delete_photo(<%=photo.id%>)" width="365" height="365">
+			</a>
+			<%=photo.title%>
+		</div>
+	<% end %>
+<% end %>
+<hr>
