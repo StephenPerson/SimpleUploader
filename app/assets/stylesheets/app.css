@@ -126,7 +126,6 @@ body.modal-open-noscroll {
 .modal-content img {
     height: auto;
     width: auto;
-    border: 1px solid black;
     border-radius: 5px;
 }
 

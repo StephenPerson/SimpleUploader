@@ -15,15 +15,9 @@
 			<nav class="nav navbar navbar-fixed-top navbar-default">
 				<!-- right -->
 				<div class="navbar-collapse collapse">
-					<% if current_user.try(:admin?) %>
-					<ul ng-repeat="n in navlistadmin" class="nav navbar-nav nav-btn">
-						<li><a href="{{n.value}}">{{n.key}}</a></li>
-					</ul>
-					<% else %>
 					<ul ng-repeat="n in navlistuser" class="nav navbar-nav nav-btn">
 						<li><a href="{{n.value}}">{{n.key}}</a></li>
 					</ul>
-					<% end %>
 				</div>
 			</nav>
 		</div>

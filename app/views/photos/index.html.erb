@@ -3,6 +3,7 @@
 	<button class="btn btn-primary" onclick="location.href='/photos/new'">new</button>
 </div>
 
+<%=@user%>
 <h3>covers</h3>
 <% @photos.each do |photo| %>
 	<% if photo.series_cover %>

@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  http_basic_authenticate_with name: "", password: "", except: [:application,:series]
+
   # /photos/index
   def index
     @photos = Photo.order(:series)

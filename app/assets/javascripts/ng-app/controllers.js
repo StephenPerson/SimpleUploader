@@ -8,13 +8,7 @@ app.controller('NavCtrl', function($scope) {
 		});
 	}
 	addEntry('Home', '/');
-	addEntry('Index', '/photos/index');
-	addEntry('Upload', '/photos/new');
-	$scope.navlistadmin = list;
-	list = [];
-	addEntry('Home', '/');
 	addEntry('About', '/about');
-	addEntry('Contact', '/contactme');
 	$scope.navlistuser = list;
 
 	$scope.isLast = function(key) {

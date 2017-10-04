@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
-  	devise_for :users
-  	resources :photos, only: [:new, :create, :index, :destroy]
-
+	resources :photos, only: [:index, :new, :create, :destroy]
+	
   	# application
-	root 'photos#application'
-	# admin login
-	get 'login', to: 'sessions#new', as: 'login'
-    get 'logout', to: 'sessions#destroy', as: 'logout'
-	# admin photo uploading
-	get '/photos/destroy/:id' => 'photos#destroy'
+  	root 'photos#application'
 	get '/about' => 'photos#application'
 	get '/contactme' => 'photos#application'
 	get '/series/:series', to: 'photos#series'
+	get 'photos/destroy/:id', to: 'photos#destroy'
 end
