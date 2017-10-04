@@ -8,17 +8,17 @@ require 'mina/rvm'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application_name, 'rails-demo'
-set :domain, 'example.com'
-set :user, fetch(:application_name)
+set :application_name, 'SimpleUploader'
+set :domain, '165.227.124.170'
+set :user, 'SimpleUploader'
 set :deploy_to, "/home/#{fetch(:user)}/app"
-set :repository, 'git@bitbucket.org:example/rails-demo.git'
+set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
 set :rvm_use_path, '/etc/profile.d/rvm.sh'
 
 # Optional settings:
-#   set :user, 'foobar'          # Username in the server to SSH to.
-#   set :port, '30000'           # SSH port number.
+set :user, 'SimpleUploader'          # Username in the server to SSH to.
+#   set :port, '22'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
@@ -28,7 +28,7 @@ set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
-  ruby_version = File.read('.ruby-version').strip
+  ruby_version = File.read('../.ruby-version')
   raise "Couldn't determine Ruby version: Do you have a file .ruby-version in your project root?" if ruby_version.empty?
 
   invoke :'rvm:use', ruby_version
