@@ -1,11 +1,11 @@
 class PhotosController < ApplicationController
-  http_basic_authenticate_with name: "", password: "", except: [:application,:series]
+  http_basic_authenticate_with name: "hannah", password: "password", except: [:application,:series]
 
-  # /photos/index
+  ############ PRIVATE ############
   def index
     @photos = Photo.order(:series)
   end
-  # /photos/new
+
   def new
     @photo = Photo.new
   end
@@ -27,7 +27,8 @@ class PhotosController < ApplicationController
     flash[:success] = "The photo was destroyed."
     redirect_to '/photos'
   end
-  # (base) / :TODO should handle /about /contact /series /series/:series
+
+  ############ PUBLIC ############
   def application
     @photos = Photo.order(:series)
     @photo_covers = @photos.where(:series_cover => true)
@@ -43,4 +44,5 @@ class PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:image, :title, :series, :series_cover)
   end
+  
 end
