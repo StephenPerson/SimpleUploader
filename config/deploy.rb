@@ -28,7 +28,7 @@ set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
-  ruby_version = File.read('../.ruby-version')
+  ruby_version = File.read('.ruby-version')
   raise "Couldn't determine Ruby version: Do you have a file .ruby-version in your project root?" if ruby_version.empty?
 
   invoke :'rvm:use', ruby_version
@@ -44,7 +44,7 @@ task :setup do
     path_database_yml = "config/database.yml"
     database_yml = %[production:
   database: #{fetch(:user)}
-  adapter: postgresql
+  adapter: sqlite3
   pool: 5
   timeout: 5000]
     command %[test -e #{path_database_yml} || echo "#{database_yml}" > #{path_database_yml}]
@@ -75,7 +75,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      # command "sudo service #{fetch(:user)} restart"
+      command "sudo service #{fetch(:user)} restart"
     end
   end
 
