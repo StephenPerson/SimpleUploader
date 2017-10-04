@@ -11,11 +11,21 @@
     float: none;
     vertical-align: top;
 }
-
+.navbar .nav-btn {
+    margin-top: 1%;
+}
 .navbar .navbar-collapse {
     text-align: center;
     font-size: 18px;
     width: 47%;
+}
+
+.navbar .navbar-center {
+    position: absolute;
+    margin-left: 39.8%;
+    margin-top: 1%;
+    text-align: center;
+    font-size: 22px;
 }
 
 .nav-btn li a {
@@ -32,6 +42,7 @@
 
 .container {
     font-family: 'Ubuntu', sans-serif;
+    margin:auto;
 }
 
 .image-wrapper {
@@ -123,19 +134,23 @@ body.modal-open-noscroll {
   margin-right: 0!important;
 }
 
-.modal-content img {
-    height: auto;
-    width: auto;
-    border-radius: 5px;
+.modal-dialog {
+    width: 670px;
+    margin:auto;
 }
+.modal {
+    margin:auto;
 
-.footer {
-
+}
+.modal-content img {
+    height: 650px;
+    width: 650px;
+    border-radius: 5px;
 }
 
 .footer .container {
     display: inline-block;
-    font-size: 20px;
+    font-size: 24px;
     margin-right: 11%;
 }
 
@@ -155,6 +170,6 @@ body.modal-open-noscroll {
     margin-top: 40%;
 }
 .w3-display-right {
-    margin-left: 94%;
+    margin-left: 94.5%;
     margin-top: 40%;
 }

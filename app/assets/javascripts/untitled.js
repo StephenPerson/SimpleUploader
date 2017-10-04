@@ -63,3 +63,7 @@ function delete_photo(id) {
 
 	}
 }
+
+function open_email() {
+	window.open('mailto:hperso01@gmail.com?subject=HMPhotography');
+}

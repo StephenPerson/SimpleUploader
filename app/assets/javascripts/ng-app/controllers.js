@@ -17,8 +17,6 @@ app.controller('NavCtrl', function($scope) {
 		else
 			return false;
 	}
-
-
 })
 .controller('HomeCtrl', function($scope, $http) {
 	$scope.homeModal = window.location.pathname;

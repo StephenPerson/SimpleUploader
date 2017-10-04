@@ -13,7 +13,10 @@
 	<ng-controller ng-controller="NavCtrl">
 		<div class="container">
 			<nav class="nav navbar navbar-fixed-top navbar-default">
-				<!-- right -->
+				<div class="navbar-center">
+					Hannah Person Photography
+				</div>
+				<!-- routes -->
 				<div class="navbar-collapse collapse">
 					<ul ng-repeat="n in navlistuser" class="nav navbar-nav nav-btn">
 						<li><a href="{{n.value}}">{{n.key}}</a></li>
@@ -37,8 +40,9 @@
 			<span></span>
 		</div>
 		<div class="container navbar-right center-right">
-			<a href=""><i class="fa fa-linkedin-square"></i></a>
-			<a href=""><i class="fa fa-facebook-square icon"></i></a>
+			<a href="https://www.linkedin.com/in/hannah-person-58335614b/"><i class="fa fa-linkedin-square"></i></a>
+			<a href="https://www.facebook.com/hannah.person.5"><i class="fa fa-facebook-square icon"></i></a> |
+			<a onclick="open_email()" style="color:black;"><i class="fa fa-envelope"></i></a>
 		</div>
 	</footer>
 </body>
