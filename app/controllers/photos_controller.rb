@@ -32,6 +32,7 @@ class PhotosController < ApplicationController
   def application
     @photos = Photo.order(:series)
     @photo_covers = @photos.where(:series_cover => true)
+    render stream: true
   end
 
   def series

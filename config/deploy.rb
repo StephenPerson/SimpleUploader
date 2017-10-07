@@ -11,13 +11,13 @@ require 'mina/rvm'
 set :application_name, 'SimpleUploader'
 set :domain, '165.227.124.170'
 set :user, 'rails'
-set :deploy_to, "/home/#{fetch(:user)}/SimpleUploader/app"
+set :deploy_to, "/home/#{fetch(:user)}"
 set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
 set :rvm_use_path, '/etc/profile.d/rvm.sh'
 
 # Optional settings:
-set :user, 'root'          # Username in the server to SSH to.
+#set :user, 'root'          # Username in the server to SSH to.
 #set :port, '22'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
@@ -43,7 +43,7 @@ task :setup do
     # Create database.yml for Postgres if it doesn't exist
     path_database_yml = "config/database.yml"
     database_yml = %[production:
-  database: #{fetch(:user)}
+  database: rails
   adapter: sqlite3
   pool: 5
   timeout: 5000]
@@ -63,7 +63,7 @@ end
 desc "Deploys the current version to the server."
 task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
-  # invoke :'git:ensure_pushed'
+  invoke :'git:ensure_pushed'
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
@@ -75,7 +75,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      command "sudo service #{fetch(:user)} restart"
+      command "service unicorn_simpleuploader restart"
     end
   end
 
