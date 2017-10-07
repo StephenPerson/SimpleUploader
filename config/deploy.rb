@@ -10,15 +10,15 @@ require 'mina/rvm'
 
 set :application_name, 'SimpleUploader'
 set :domain, '165.227.124.170'
-set :user, 'SimpleUploader'
-set :deploy_to, "/home/#{fetch(:user)}/app"
+set :user, 'rails'
+set :deploy_to, "/home/#{fetch(:user)}/SimpleUploader/app"
 set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
 set :rvm_use_path, '/etc/profile.d/rvm.sh'
 
 # Optional settings:
-set :user, 'SimpleUploader'          # Username in the server to SSH to.
-#   set :port, '22'           # SSH port number.
+set :user, 'root'          # Username in the server to SSH to.
+#set :port, '22'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
