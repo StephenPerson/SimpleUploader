@@ -1,6 +1,7 @@
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rvm'
+require 'mina/unicorn'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -24,7 +25,7 @@ set :forward_agent, true     # SSH forward_agent.
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
 set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
-
+set :shared_paths, ['tmp/sockets', 'tmp/pids']
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
@@ -74,7 +75,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      command "sudo service unicorn_simpleuploader restart"
+      mina unicorn:restart
     end
   end
 
