@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-source 'https://rubygems.org'
 gem 'nokogiri'
 gem 'rack', '~> 2.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -31,7 +30,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-gem 'unicorn'
 gem 'rspec-rails'
 gem 'bootstrap-sass'
 gem "paperclip"
@@ -55,6 +53,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
+group :production do
+  gem 'unicorn'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

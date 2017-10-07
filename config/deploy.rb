@@ -9,7 +9,7 @@ require 'mina/rvm'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'SimpleUploader'
-set :domain, '165.227.124.170'
+set :domain, '104.236.41.117'
 set :user, 'rails'
 set :deploy_to, "/home/#{fetch(:user)}"
 set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
@@ -18,8 +18,8 @@ set :rvm_use_path, '/etc/profile.d/rvm.sh'
 
 # Optional settings:
 #set :user, 'root'          # Username in the server to SSH to.
-#set :port, '22'           # SSH port number.
-#   set :forward_agent, true     # SSH forward_agent.
+set :port, '22'           # SSH port number.
+set :forward_agent, true     # SSH forward_agent.
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
@@ -43,7 +43,7 @@ task :setup do
     # Create database.yml for Postgres if it doesn't exist
     path_database_yml = "config/database.yml"
     database_yml = %[production:
-  database: rails
+  database: #{fetch(:user)}
   adapter: sqlite3
   pool: 5
   timeout: 5000]
@@ -57,7 +57,6 @@ task :setup do
     # Remove others-permission for config directory
     command %[chmod -R o-rwx config]
   end
-
 end
 
 desc "Deploys the current version to the server."
@@ -75,7 +74,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      command "service unicorn_simpleuploader restart"
+      # command "service unicorn_simpleuploader restart"
     end
   end
 
