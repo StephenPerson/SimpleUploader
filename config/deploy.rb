@@ -74,7 +74,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      # command "service unicorn_simpleuploader restart"
+      command "sudo service unicorn_simpleuploader restart"
     end
   end
 
