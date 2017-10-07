@@ -11,7 +11,7 @@ require 'mina/rvm'
 set :application_name, 'SimpleUploader'
 set :domain, '104.236.41.117'
 set :user, 'rails'
-set :deploy_to, "/home/#{fetch(:user)}"
+set :deploy_to, "/home/#{fetch(:user)}/app"
 set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
 set :rvm_use_path, '/etc/profile.d/rvm.sh'
