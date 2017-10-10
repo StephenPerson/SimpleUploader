@@ -17,7 +17,8 @@ set :user, 'rails'
 set :deploy_to, "/home/#{fetch(:user)}/app"
 set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
-set :rvm_use_path, '/etc/profile.d/rvm.sh'
+#set :rvm_path, '/etc/profile.d/rvm.sh'
+set :rvm_path, '/usr/local/rvm/scripts/rvm'
 
 # Optional settings:
 #set :user, 'root'          # Username in the server to SSH to.
@@ -30,7 +31,13 @@ set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/
 set :shared_paths, fetch(:shared_paths, []).push('shared/sockets', 'shared/pids')
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
-task :environment do
+task :local_environment do
+  ruby_version = File.read('.ruby-version')
+  raise "Couldn't determine Ruby version: Do you have a file .ruby-version in your project root?" if ruby_version.empty?
+
+  invoke :'rvm:use', ruby_version
+end
+task :remote_environment do
   ruby_version = File.read('.ruby-version')
   raise "Couldn't determine Ruby version: Do you have a file .ruby-version in your project root?" if ruby_version.empty?
 
