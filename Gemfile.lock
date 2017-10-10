@@ -674,7 +674,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.5)
   jquery-rails
-  listen (>= 3.0.5, < 3.2)
+  listen (>= 3.0.5)
   mina-nginx
   mina-unicorn
   nokogiri

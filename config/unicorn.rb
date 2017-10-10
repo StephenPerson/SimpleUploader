@@ -1,11 +1,13 @@
+# Ensure that we're running in the production environment
+rails_env = ENV['RAILS_ENV'] || 'production'
 # set path to application
-app_dir = File.expand_path("../..", __FILE__)
+app_dir = "/home/rails/app"
 shared_dir = "#{app_dir}/shared"
 working_directory app_dir
 
 # Set unicorn options
 worker_processes 2
-preload_app true
+preload_app false
 timeout 30
 
 # Set up socket location
