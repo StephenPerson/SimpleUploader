@@ -1,3 +1,4 @@
+require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rvm'
@@ -22,6 +23,7 @@ set :rvm_use_path, '/etc/profile.d/rvm.sh'
 #set :user, 'root'          # Username in the server to SSH to.
 set :port, '22'           # SSH port number.
 set :forward_agent, true     # SSH forward_agent.
+set :ssh_options, '-A'
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
