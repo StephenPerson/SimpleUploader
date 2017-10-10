@@ -499,7 +499,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
-    erubi (1.6.1)
+    erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
     globalid (0.4.0)
@@ -532,6 +532,8 @@ GEM
     mina (1.2.1)
       open4 (~> 1.3.4)
       rake
+    mina-nginx (0.0.3)
+      mina (~> 1)
     mina-unicorn (1.1.0)
       mina (~> 1.0)
     mini_portile2 (2.3.0)
@@ -548,6 +550,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    parslet (1.8.0)
     puma (3.10.0)
     rack (2.0.3)
     rack-test (0.7.0)
@@ -633,6 +636,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    trollop (2.1.2)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -653,6 +657,10 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    yarn (0.1.1)
+      parslet (>= 1.2)
+      rack (>= 1.3)
+      trollop (>= 1.16)
 
 PLATFORMS
   ruby
@@ -667,6 +675,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  mina-nginx
   mina-unicorn
   nokogiri
   paperclip
@@ -686,6 +695,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console (>= 3.3.0)
+  yarn
 
 BUNDLED WITH
    1.15.4

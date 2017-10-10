@@ -10,6 +10,7 @@ gem 'rack', '~> 2.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 gem 'railties'
+gem 'yarn'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -38,6 +39,7 @@ gem 'aws-sdk'
 gem 'jquery-rails'
 gem 'bower-rails'
 gem 'mina-unicorn', :require => false
+gem 'mina-nginx', :require => false
 gem 'unicorn'
 
 # Use Capistrano for deployment
