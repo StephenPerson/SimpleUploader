@@ -23,8 +23,8 @@ set :use_sudo, false
 
 # Optional settings:
 #set :user, 'root'          # Username in the server to SSH to.
-set :port, '22'           # SSH port number.
-set :forward_agent, true     # SSH forward_agent.
+#set :port, '22'           # SSH port number.
+#set :forward_agent, true     # SSH forward_agent.
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
@@ -73,8 +73,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      comment %[cd "#{fetch(:deploy_to)}"]
-      invoke :'unicorn:restart'
+      command %[sudo service unicorn_simpleuploader start"]
     end
   end
 
