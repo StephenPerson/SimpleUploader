@@ -1,7 +1,7 @@
 require 'mina/nginx/version'
 
 namespace :nginx do
-  application = fetch :application, 'application'
+  application = fetch :application, 'SimpleUploader'
 
   set :nginx_user,        'www-data'
   set :nginx_group,       'www-data'

@@ -19,6 +19,7 @@ set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
 #set :rvm_path, '/etc/profile.d/rvm.sh'
 set :rvm_path, '/usr/local/rvm/scripts/rvm'
+set :use_sudo, false
 
 # Optional settings:
 #set :user, 'root'          # Username in the server to SSH to.
