@@ -1,7 +1,5 @@
-
-<% set :rvm_use_path, '/usr/local/rvm/scripts/rvm' %>
-<% application = fetch :application, 'SimpleUploader' %>
-<% socket_path = fetch :nginx_socket_path, '/run/' %>
+<% application = fetch :application, 'application' %>
+<% socket_path = fetch :nginx_socket_path, '/path/to/web/socket' %>
 
 upstream <%= application %> {
   server unix://<%= socket_path %> fail_timeout=0;

@@ -11,7 +11,7 @@ require 'mina/nginx'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application_name, 'SimpleUploader'
+set :application, 'SimpleUploader'
 set :domain, '104.236.41.117'
 set :user, 'rails'
 set :deploy_to, "/home/#{fetch(:user)}/app"
@@ -32,21 +32,10 @@ set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/
 set :shared_paths, fetch(:shared_paths, []).push('shared/sockets', 'shared/pids')
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
-task :local_environment do
-  ruby_version = File.read('.ruby-version')
-  raise "Couldn't determine Ruby version: Do you have a file .ruby-version in your project root?" if ruby_version.empty?
-
-  invoke :'rvm:use', ruby_version
-end
-task :remote_environment do
-  ruby_version = File.read('.ruby-version')
-  raise "Couldn't determine Ruby version: Do you have a file .ruby-version in your project root?" if ruby_version.empty?
-
-  invoke :'rvm:use', ruby_version
-end
+ruby_version = File.read('.ruby-version')
+invoke :'rvm:use', ruby_version
 
 task :setup do
-
   in_path(fetch(:shared_path)) do
 
     command %[mkdir -p config]
