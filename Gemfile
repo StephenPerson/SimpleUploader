@@ -7,6 +7,7 @@ end
 
 gem 'nokogiri'
 gem 'rack', '~> 2.0.1'
+gem 'bundler'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 gem 'railties'
