@@ -18,10 +18,12 @@ set :domain, '104.236.41.117'
 set :deploy_to, '/home/rails/hannahperson'
 set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
+set :bundle_bin, '/usr/local/rvm/gems/ruby-2.4.2/wrappers/bundle'
+set :rvm_use_path, '/usr/local/rvm/bin/rvm'
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
-#   set :port, '30000'           # SSH port number.
+set :port, '22'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
 # Shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
@@ -38,13 +40,13 @@ task :environment do
   # invoke :'rbenv:load'
   command %[ export PATH="$PATH:$HOME/.rbenv/shims" ]
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use', 'ruby-2.4.2p198@default'
+  # invoke :'rvm:use', 'ruby-2.4.2p198@default'
 end
 
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-  #command %{rbenv install 2.3.0 --skip-existing}
+
 end
 
 desc "Deploys the current version to the server."
@@ -64,8 +66,7 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
+
       end
     end
   end

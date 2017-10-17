@@ -1,6 +1,6 @@
 # set path to application
 app_dir git File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/shared"
+shared_dir = "/home/rails/hannahperson/shared"
 working_directory app_dir
 
 # Set unicorn options
