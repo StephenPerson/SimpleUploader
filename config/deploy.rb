@@ -1,7 +1,7 @@
 require 'mina/git'
-require 'mina/unicorn'
 require 'mina/rails'
 require 'mina/bundler'
+require 'mina/unicorn'
 require 'mina/nginx'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
