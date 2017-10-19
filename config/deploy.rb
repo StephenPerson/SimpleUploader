@@ -1,7 +1,7 @@
-require 'mina/rails'
 require 'mina/git'
-require 'mina/bundler'
 require 'mina/unicorn'
+require 'mina/rails'
+require 'mina/bundler'
 require 'mina/nginx'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
@@ -19,8 +19,8 @@ set :deploy_to, '/home/rails/hannahperson'
 set :repository, 'https://github.com/StephenPerson/SimpleUploader.git'
 set :branch, 'master'
 set :bundle_bin, '/usr/local/rvm/gems/ruby-2.4.2/wrappers/bundle'
-set :rvm_use_path, '/usr/local/rvm/bin/rvm'
-
+set :rvm_use_path, '/usr/local/rvm/wrappers/rvm'
+set :git_bin, '/usr/wrappers/git'
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
 set :port, '22'           # SSH port number.
@@ -34,13 +34,12 @@ set :port, '22'           # SSH port number.
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
+task :local_environment do 
+
+end
+
 task :remote_environment do
-  # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .ruby-version or .rbenv-version to your repository.
-  # invoke :'rbenv:load'
-  # command %[ export PATH="$PATH:$HOME/.rbenv/shims" ]
-  # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use', 'ruby-2.4.2p198@default'
+
 end
 
 # Put any custom commands you need to run at setup
@@ -66,8 +65,6 @@ task :deploy do
 
   end
 
-  # you can use `run :local` to run tasks on local machine before of after the deploy scripts
-  run(:local){ say 'done' }
 end
 
 # For help in making your deploy script, see the Mina documentation:

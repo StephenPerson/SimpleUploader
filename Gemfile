@@ -39,8 +39,8 @@ gem "paperclip"
 gem 'aws-sdk'
 gem 'jquery-rails'
 gem 'bower-rails'
-gem 'mina-unicorn', :require => false
-gem 'mina-nginx', :require => false
+gem 'mina-unicorn', :require => true
+gem 'mina-nginx', :require => true
 gem 'unicorn'
 gem 'listen', '>= 3.0.5'
 
