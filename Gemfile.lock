@@ -657,7 +657,6 @@ DEPENDENCIES
   aws-sdk
   bootstrap-sass
   bower-rails
-  bundler
   byebug
   coffee-rails (~> 4.2)
   devise

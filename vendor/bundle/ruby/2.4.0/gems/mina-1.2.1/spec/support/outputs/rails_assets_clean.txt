@@ -1,2 +1,0 @@
-echo "-----> Removing older assets"
-RAILS_ENV="production" bundle exec rake assets:clean

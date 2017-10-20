@@ -1,2 +1,0 @@
-echo "-----> Cleans up unsed gems"
-bundle clean --without development test --path "vendor/bundle" --deployment

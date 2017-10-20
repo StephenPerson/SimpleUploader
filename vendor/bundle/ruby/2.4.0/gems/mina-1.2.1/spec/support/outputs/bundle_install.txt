@@ -1,2 +1,0 @@
-echo "-----> Installing gem dependencies using Bundler"
-bundle install --without development test --path "vendor/bundle" --deployment

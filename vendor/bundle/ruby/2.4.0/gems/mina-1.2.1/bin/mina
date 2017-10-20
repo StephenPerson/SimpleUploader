@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-require 'mina'
-
-Mina::Application.new.run
