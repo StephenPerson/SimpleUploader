@@ -7,7 +7,6 @@ end
 
 gem 'nokogiri'
 gem 'rack', '~> 2.0.1'
-gem 'bundler'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 gem 'railties'
@@ -39,9 +38,6 @@ gem "paperclip"
 gem 'aws-sdk'
 gem 'jquery-rails'
 gem 'bower-rails'
-gem 'mina-unicorn', :require => true
-gem 'mina-nginx', :require => true
-gem 'unicorn'
 gem 'listen', '>= 3.0.5'
 
 # Use Capistrano for deployment
