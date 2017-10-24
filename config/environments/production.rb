@@ -89,8 +89,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :preserve_files => true,
-    :s3_host_name => 'REMOVE_THIS_LINE_IF_UNNECESSARY',
-    :bucket => 'S3_BUCKET_NAME'
+    :bucket => 'elasticbeanstalk-us-east-1-932363729878'
   }
 
   # Do not dump schema after migrations.
